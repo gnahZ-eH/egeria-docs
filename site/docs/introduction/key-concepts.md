@@ -87,7 +87,7 @@ Every metadata *instance* is linked to an [open metadata type definition](/egeri
 
     `RelationalColumn` is another example of an entity, in this case one that can be used to describe relational database columns. Once again it is defined using an `EntityDef`, has a number of properties, and also extends the base type called `Referenceable` and therefore also gains common properties like the `qualifiedName`.
 
-    Finally, let's consider a different type: `SemanticAssignment` is a type of relationship that can be used to describe the meaning of something. Because it is a type of relationship, it is defined using a `RelationshipDef` (another subtype of `EntityDef`, this time specific to relationships). As a relationship, the RelationshipDef defines the entities that it can inter-relate: in this example a `GlossaryTerm` and any other `Referenceable` (for example, a `RelationalColumn`).
+    Finally, let's consider a different type: `SemanticAssignment` is a type of relationship that can be used to describe the meaning of something. Because it is a type of relationship, it is defined using a `RelationshipDef` (another subtype of `TypeDef`, this time specific to relationships). As a relationship, the RelationshipDef defines the entities that it can inter-relate: in this example a `GlossaryTerm` and any other `Referenceable` (for example, a `RelationalColumn`).
 
 ??? question "Where are the types modeled?"
     The `TypeDef`s themselves are described in detail under the [types](/egeria-docs/types) reference area, and the canonical definitions ultimately [live in the code itself :material-github:](https://github.com/odpi/egeria/tree/master/open-metadata-resources/open-metadata-archives/open-metadata-types/src/main/java/org/odpi/openmetadata/opentypes){ target=gh }.
@@ -129,7 +129,7 @@ There should be, at most, a *tiny* chance[^3] that two servers will generate the
 
 Adhering to these concepts and the principles by which they behave is the subject of *conformance*. Egeria provides an [automated testing suite to validate that a given repository or third party integration behaves according to these expectations](/egeria-docs/guides/cts/overview), the successful completion of which is a necessary input to a tool being granted the use of an Egeria conformance mark.
 
-[^1]: You may want to see the [cohort interactions walkthrough](/egeria-docs/features/cohort-operaation/overview) for more details on how cohort participants interact.
+[^1]: You may want to see the [cohort interactions walkthrough](/egeria-docs/features/cohort-operation/overview) for more details on how cohort participants interact.
 [^2]: You may want to see the [OMRS metamodel](/egeria-docs/guides/developer/repository-connectors/metamodel/overview) for more details on the granularity of metadata exchange.
 [^3]: The rarity will depend on the specific algorithm used, but as an example the algorithm used within Egeria generates type 4 UUIDs, for which the [probability of a collision is so small that it can almost be ignored :material-dock-window:](https://en.wikipedia.org/wiki/Universally_unique_identifier#Collisions){ target=wiki }. But as it is not *impossible*, Egeria does still provide the mechanisms to detect and resolve such conflicts.
 
